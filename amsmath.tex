@@ -1,0 +1,375 @@
+\documentclass[a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+% Align text to left
+\raggedright
+
+% Headings
+\usepackage{titlesec}
+
+\titleformat{\section}[display]
+  {\large\sffamily\bfseries}{\thesection}{1cm}{}
+
+% Font settings
+\usepackage[tracking]{microtype}
+\usepackage[sc,osf]{mathpazo}
+\linespread{1.025}
+\usepackage[euler-digits,small]{eulervm}
+\AtBeginDocument{\renewcommand{\hbar}{\hslash}}
+%\renewcommand{\familydefault}{\sfdefault}
+%\renewcommand*\sfdefault{cmss}
+
+%\titlespacing*{\section}{0pt}{13pt}{5pt}
+
+% Landscape orientation
+\usepackage[margin=2cm, landscape]{geometry}
+
+% Multi-column document
+\usepackage{multicol}
+
+% Less vertical spacing
+\raggedcolumns
+
+% Coding environment
+\usepackage{listings}
+\lstset{basicstyle=\small\ttfamily}
+\lstMakeShortInline|
+
+% Math packages (AmS)
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+% For examples
+\usepackage{mathtools}
+\DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
+\DeclarePairedDelimiter{\norm}{\lVert}{\rVert}
+\usepackage{bm}
+
+\begin{document}
+% Title
+{\centering \textsc{\huge \AmS-\LaTeX\ Quick Reference} \par}
+\vspace{1mm}
+\rule{\textwidth}{0.2mm}
+\begin{multicols*}{3}
+\section*{Packages}
+The main package to load is |amsmath|.
+More symbols are included in |amssymb|.
+
+\section*{Typeset}
+For text style (inline) math, use: |$| \dots\ |$| \\
+For display style math, which breaks the paragraph: \\
+|\begin{equation}| \dots\ |\end{equation}| (numbered) or |\[| \dots\ |\]| (non-numbered).
+
+\section*{Greek letters}
+\begin{tabular}{clclcl}
+  $\alpha$ & |\alpha| & $\beta$ & |\beta| & $\gamma$ & |\gamma| \\
+  $\delta$ & |\delta| & $\epsilon$ & |\epsilon| & $\varepsilon$ & |\varepsilon| \\
+  $\zeta$ & |\zeta| & $\eta$ & |\eta| & $\theta$ & |\theta| \\
+  $\vartheta$ & |\vartheta| & $\iota$ & |\iota| & $\kappa$ & |\kappa| \\
+  $\lambda$ & |\lambda| & $\mu$ & |\mu| & $\nu$ & |\nu| \\
+  $\xi$ & |\xi| & $\pi$ & |\pi| & $\varpi$ & |\varpi| \\
+  $\rho$ & |\rho| & $\varrho$ & |\varrho| & $\sigma$ & |\sigma| \\
+  $\tau$ & |\tau| & $\upsilon$ & |\upsilon| & $\phi$ & |\phi| \\
+  $\varphi$ & |\varphi| & $\chi$ & |\chi| & $\psi$ & |\psi| \\
+  $\omega$ & |\omega| \\
+  $\Gamma$ & |\Gamma| & $\Delta$ & |\Delta| & $\Theta$ & |\Theta| \\
+  $\Lambda$ & |\Lambda| & $\Xi$ & |\Xi| & $\Pi$ & |\Pi| \\
+  $\Sigma$ & |\Sigma| & $\Upsilon$ & |\Upsilon| & $\Phi$ & |\Phi| \\
+  $\Psi$ & |\Psi| & $\Omega$ & |\Omega|
+\end{tabular}
+
+\vspace{1mm}
+To ensure a consistent style throughout the document: \\
+\vspace{1mm}
+|\renewcommand{\epsilon}{\varepsilon}| \\
+|\renewcommand{\theta}{\vartheta}| \\
+|\renewcommand{\rho}{\varrho}| \\
+|\renewcommand{\phi}{\varphi}|
+
+\section*{Superscript \& Subscript}
+\begin{tabular}{clccl}
+  $x^y$ & |x^y| & $\quad$ & $x^{a+b}$ & |x^{a+b}| \\
+  $x_y$ & |x_y| & $\quad$ & $x_{a+b}$ & |x_{a+b}|
+\end{tabular}
+
+\section*{Root}
+\begin{tabular}{rcl}
+  Square root & $\sqrt{x}$ & |\sqrt{x}| \\
+  N-th root & $\sqrt[N]{x}$ & |\sqrt[N]{x}|
+\end{tabular}
+
+\section*{Dots}
+\begin{tabular}{rcl}
+  Multiplication dot & $\cdot$ & |\cdot| \\
+  Three centered dots & $\cdots$ & |\cdots| \\
+  Three baseline dots & $\ldots$ & |\ldots| \\
+  Three diagonal dots & $\ddots$ & |\ddots| \\
+  Three vertical dots & $\vdots$ & |\vdots|
+\end{tabular}
+
+\section*{Spaces}
+\begin{tabular}{rl}
+  Negative space & |\!| \\
+  Thin space & |\,| \\
+  1em space & |\quad| \\
+  2em space & |\qquad|
+\end{tabular}
+
+\section*{Braces}
+|\overbrace{| \dots\ |}^{| text over brace |}| \\
+|\underbrace{| \dots\ |}_{| text under brace |}|
+
+\section*{Accents}
+\begin{tabular}{clclcl}
+  $\hat{a}$ & |\hat{a}| & $\bar{a}$ & |\bar{a}| & $\mathring{a}$ & |\mathring{a}| \\
+  $\check{a}$ & |\check{a}| & $\dot{a}$ & |\dot{a}| & $\vec{a}$ & |\vec{a}| \\
+  $\tilde{a}$ & |\tilde{a}| & $\ddot{a}$ & |\ddot{a}| & $\widehat{AAA}$ & |\widehat{AAA}|
+\end{tabular}
+
+\section*{Operators}
+\begin{tabular}{llll}
+  |\sin| & |\cos| & |\arcsin| & |\arccos| \\
+  |\sinh| & |\cosh| & |\tan| & |\arctan| \\
+  |\log| & |\ln| & |\max| & |\min| \\
+  |\sup| & |\inf| & |\tanh| & |\cot| \\
+  |\sec| & |\csc| & |\det|
+\end{tabular}
+
+\section*{Modulo}
+\begin{tabular}{rl}
+  $a \bmod b$ & |a \bmod b| \\
+  $a \equiv b \pmod{m}$ & |a \equiv b \pmod{m}|
+\end{tabular}
+
+\section*{Fractions}
+|\frac{| \dots\ |}{| \dots\ |}|
+
+\section*{Symbol stacking}
+|\overset{| \dots\ |}{| \dots\ |}| \\
+|\underset{| \dots\ |}{| \dots\ |}| \\
+\vspace{2mm}
+First argument is the main symbol, second argument is the symbol to put over or under the main symbol.
+
+\section*{Big operators}
+\bgroup
+  \def\arraystretch{2.3}
+  \begin{tabular}{clcl}
+    $\displaystyle \int_{a}^{b}$ & |\int_{a}^{b}| & $\displaystyle \sum_{k=0}^{n}$ & |\sum_{k=0}^{n}| \\
+    $\displaystyle \prod_{k=0}^{n}$ & |\prod_{k=0}^{n}| & $\displaystyle \lim_{x \to 0}$ & |\lim_{x \to 0}|
+  \end{tabular}
+\egroup
+
+\vspace{3mm}
+For multiple integrals: $\iint$ |\iint| $\,\, \iiint$ |\iiint| etc.
+Closed path integral: $\oint$ |\oint|
+
+\section*{Delimiter size}
+Change the delimiter size by adding one of these modifiers immediately before the delimiter itself: \\
+|\big \Big \bigg \Bigg|\\
+\vspace{2mm}
+Let \LaTeX\ determine the correct size using |\left| and |\right| immediately before the opening and closing delimiters, respectively.
+
+\section*{Absolute value \& Norm}
+\begin{tabular}{cl}
+  $\lvert x \rvert$ & |\lvert x \rvert| \\
+  $\lVert x \rVert$ & |\lVert x \rVert|
+\end{tabular}
+
+\vspace{3mm}
+The same can be achieved by defining new commands: \\
+\vspace{1mm}
+|\usepackage{mathtools}| \\
+|\DeclarePairedDelimiter{\abs}{\lvert}{\rvert}| \\
+|\DeclarePairedDelimiter{\norm}{\lVert}{\rVert}| \\
+
+\vspace{3mm}
+Use starred variants |\abs*| and |\norm*| to produce the correct delimiter height for any kind of equation.
+\vspace{3mm}
+
+\bgroup
+\def\arraystretch{1.2}
+\begin{tabular}{clcl}
+  $\abs{x}$ & |\abs{x}| & $\abs*{\frac{a}{b}}$ & |\abs*{\frac{a}{b}}| \\
+  $\norm{x}$ & |\norm{x}|& $\norm*{\frac{a}{b}}$ & |\norm*{\frac{a}{b}}|
+\end{tabular}
+\egroup
+
+\section*{Arrows}
+\begin{tabular}{clclcl}
+  $\uparrow$ & |\uparrow| & $\downarrow$ & |\downarrow| & $\updownarrow$ & |\updownarrow| \\
+  $\Uparrow$ & |\Uparrow| & $\Downarrow$ & |\Downarrow| & $\Updownarrow$ & |\Updownarrow|
+\end{tabular}
+
+\begin{tabular}{clcl}
+  $\leftarrow$ & |\leftarrow| or |\gets| & $\rightarrow$ & |\rightarrow| or |\to| \\
+  $\leftrightarrow$ & |\leftrightarrow| & $\Leftarrow$ & |\Leftarrow| \\
+  $\Rightarrow$ & |\Rightarrow| & $\Leftrightarrow$ & |\Leftrightarrow| \\
+  $\mapsto$ & |\mapsto|
+\end{tabular}
+
+{\centering
+\begin{tabular}{cl}
+  $\longleftarrow$ & |\longleftarrow| \\
+  $\longrightarrow$ & |\longrightarrow| \\
+  $\longleftrightarrow$ & |\longleftrightarrow| \\
+  $\Longleftarrow$ & |\Longleftarrow| \\
+  $\Longrightarrow$ & |\Longrightarrow| \\
+  $\Longleftrightarrow$ & |\Longleftrightarrow| \\
+  $\longmapsto$ & |\longmapsto|
+\end{tabular}
+\par}
+
+\section*{Binary relations}
+\begin{tabular}{clclclcl}
+  $\ne$ & |\ne| & $\le$ & |\le| & $\ge$ & |\ge| \\
+  $\equiv$ & |\equiv| & $\ll$ & |\ll| & $\gg$ & |\gg| \\
+  $\doteq$ & |\doteq| & $\sim$ & |\sim| & $\simeq$ & |\simeq| \\
+  $\subset$ & |\subset| & $\supset$ & |\supset| & $\approx$ & |\approx| \\
+  $\subseteq$ & |\subseteq| & $\supseteq$ & |\supseteq| & $\cong$ & |\cong| \\
+  $\in$ & |\in| & $\ni$ & |\ni| & $\propto$ & |\propto| \\
+  $\mid$ & |\mid| & $\parallel$ & |\parallel| & $\perp$ & |\perp|
+\end{tabular}
+
+\vspace{3mm}
+It's possible to negate these symbols by prefixing them with |\not| (for example: $\not\equiv$ |\not\equiv|)
+
+\section*{Binary operators}
+\begin{tabular}{clclcl}
+  $\pm$ & |\pm| & $\mp$ & |\mp| & $\cdot$ & |\cdot| \\
+  $\div$ & |\div| & $\times$ & |\times| & $\setminus$ & |\setminus| \\
+  $\star$ & |\star| & $\cup$ & |\cup| & $\cap$ & |\cap| \\
+  $\ast$ & |\ast| & $\circ$ & |\circ| & $\bullet$ & |\bullet| \\
+  $\oplus$ & |\oplus| & $\ominus$ & |\ominus| & $\odot$ & |\odot| \\
+  $\oslash$ & |\oslash| & $\otimes$ & |\otimes| & $\smallsetminus$ & |\smallsetminus|
+\end{tabular}
+
+\section*{Logic symbols}
+\begin{tabular}{clclcl}
+  $\lor$ & |\lor| & $\land$ & |\land| & $\neg$ & |\neg| \\
+  $\exists$ & |\exists| & $\nexists$ & |\nexists| & $\forall$ & |\forall| \\
+  $\implies$ & |\implies| & $\iff$ & |\iff| & $\models$ & |\models|
+\end{tabular}
+
+\section*{Other symbols}
+\begin{tabular}{rcl}
+  Infinity & $\infty$ & |\infty| \\
+  Partial derivative & $\partial$ & |\partial| \\
+  Empty set & $\emptyset$ & |\emptyset| \\
+  Nabla & $\nabla$ & |\nabla| \\
+  Angle brackets & $\langle x \rangle$ & |\langle x \rangle|
+\end{tabular}
+
+\section*{Multi line equations}
+Use the |multline| environment: \\
+|\begin{multline}| \dots\ |\end{multline}| \\
+
+\vspace{2mm}
+To align equations, use the |align| environment. Specify the alignment position with |&| and separate equations with |\\|: \\
+
+\vspace{1mm}
+|\begin{align}| \\
+\dots\ |&=| \dots |\\| \\
+\dots\ |&=| \dots \\
+|\end{align}|
+
+\section*{Vectors}
+\begin{tabular}{cl}
+  $\vec{x}$ & |\vec{x}| \\
+  $\bm{x}$ & |\bm{x}| (needs |bm| package)
+\end{tabular}
+
+\vspace{2mm}
+Best practice to easily switch between types: \\
+|\usepackage{bm}| \\
+|\renewcommand{\vec}{\bm}|
+
+\section*{Arrays}
+Use the |array| environment. Use |\\| to separate rows, and |&| to separate elements of each row. To produce large delimiters around the array, use |\left| and |\right| followed by the desired delimiter. \\
+
+\begin{center}
+\begin{minipage}[c]{3cm}
+  $\left(
+  \begin{array}{lcr}
+    a & b & c \\
+    d & e & f \\
+    g & h & i
+  \end{array}
+  \right)$
+\end{minipage}
+\hspace{0.1cm}
+\begin{minipage}[c]{2.5cm}
+  |\left(| \\
+  |\begin{array}{lcr}| \\
+  |  a & b & c \\| \\
+  |  d & e & f \\| \\
+  |  g & h & i| \\
+  |\end{array}| \\
+  |\right)|
+\end{minipage}
+\end{center}
+
+Each letter in the argument of the array represents a column: \\
+\vspace{2mm}
+\begin{tabular}{cl}
+  |l| & left aligned text \\
+  |c| & centered text \\
+  |r| & right aligned text
+\end{tabular}
+
+\section*{Cases}
+Use the |cases| environment. Use |\\| to separate different cases, and |&| for correct alignment. \\
+
+\vspace{3mm}
+\begin{minipage}[c]{3cm}
+  $\quad
+  \begin{cases}
+    x & \text{if } x > 0 \\
+    0 & \text{if } x \le 0
+  \end{cases}$
+\end{minipage}
+\hspace{0.1cm}
+\begin{minipage}[c]{2cm}
+  |\begin{cases}| \\
+  |  x & \text{if } x > 0 \\| \\
+  |  0 & \text{if } x \le 0| \\
+  |\end{cases}|
+\end{minipage}
+
+\section*{Matrices}
+Use one of the following environments: \\
+
+\vspace{2mm}
+$\qquad$
+\begin{tabular}{rl}
+  |matrix| & No delimiter \\
+  |pmatrix| & $($ delimiter \\
+  |bmatrix| & $[$ delimiter \\
+  |Bmatrix| & $\{$ delimiter \\
+  |vmatrix| & $\lvert$ delimiter \\
+  |Vmatrix| & $\lVert$ delimiter
+\end{tabular}
+
+\vspace{3mm}
+Use |\\| to separate different rows, and |&| to separate elements of each row.
+\begin{center}
+\begin{minipage}[c]{3cm}
+  $\begin{bmatrix}
+    1 & 2 & 3 \\
+    4 & 5 & 6 \\
+  \end{bmatrix}$
+\end{minipage}
+\hspace{0.2cm}
+\begin{minipage}[c]{3cm}
+  |\begin{bmatrix}| \\
+  |  1 & 2 & 3 \\| \\
+  |  4 & 5 & 6| \\
+  |\end{bmatrix}|
+\end{minipage}
+\end{center}
+
+\vspace{1mm}
+To produce a small matrix, useful for inline math, use the |smallmatrix| environment: $\left[\begin{smallmatrix} a & b \\ c & d \end{smallmatrix}\right]$.
+
+\end{multicols*}
+\end{document}
