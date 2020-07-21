@@ -24,6 +24,9 @@
 % Multi-column document
 \usepackage{multicol}
 
+% No page numbering
+\pagenumbering{gobble}
+
 % Less vertical spacing
 \raggedcolumns
 
@@ -73,15 +76,19 @@ For display style math, which breaks the paragraph: \\
   $\Lambda$ & |\Lambda| & $\Xi$ & |\Xi| & $\Pi$ & |\Pi| \\
   $\Sigma$ & |\Sigma| & $\Upsilon$ & |\Upsilon| & $\Phi$ & |\Phi| \\
   $\Psi$ & |\Psi| & $\Omega$ & |\Omega|
-\end{tabular}
-
-\vspace{1mm}
+\end{tabular}\\
+\vspace{2mm}
 To ensure a consistent style throughout the document: \\
 \vspace{1mm}
 |\renewcommand{\epsilon}{\varepsilon}| \\
 |\renewcommand{\theta}{\vartheta}| \\
 |\renewcommand{\rho}{\varrho}| \\
 |\renewcommand{\phi}{\varphi}|
+
+\section*{Mathematical font}
+$\mathcal{A} \, \mathcal{B} \, \mathcal{C} \, \mathcal{D} \, \mathcal{E} \, \mathcal{F} \, \mathcal{G} \, \mathcal{H} \, \mathcal{I} \, \mathcal{J} \, \mathcal{K} \, \mathcal{L} \, \mathcal{M} \, \mathcal{N} \, \mathcal{O} \, \mathcal{P} \, \mathcal{Q} \, \mathcal{R} \, \mathcal{S} \, \mathcal{T} \, \mathcal{U} \, \mathcal{V} \, \mathcal{W} \, \mathcal{X} \, \mathcal{Y} \, \mathcal{Z}$ \\
+\vspace{1mm}
+|\mathcal{| \emph{letter} |}|
 
 \section*{Superscript \& Subscript}
 \begin{tabular}{clccl}
@@ -107,14 +114,16 @@ To ensure a consistent style throughout the document: \\
 \section*{Spaces}
 \begin{tabular}{rl}
   Negative space & |\!| \\
-  Thin space & |\,| \\
+  Thinnest space & |\,| \\
+  Thin space & |\:| \\
+  Medium space & |\;| \\
   1em space & |\quad| \\
   2em space & |\qquad|
 \end{tabular}
 
 \section*{Braces}
-|\overbrace{| \dots\ |}^{| text over brace |}| \\
-|\underbrace{| \dots\ |}_{| text under brace |}|
+|\overbrace{| \dots\ |}^{| \emph{text over brace} |}| \\
+|\underbrace{| \dots\ |}_{| \emph{text under brace} |}|
 
 \section*{Accents}
 \begin{tabular}{clclcl}
@@ -124,13 +133,15 @@ To ensure a consistent style throughout the document: \\
 \end{tabular}
 
 \section*{Operators}
-\begin{tabular}{llll}
-  |\sin| & |\cos| & |\arcsin| & |\arccos| \\
-  |\sinh| & |\cosh| & |\tan| & |\arctan| \\
-  |\log| & |\ln| & |\max| & |\min| \\
-  |\sup| & |\inf| & |\tanh| & |\cot| \\
-  |\sec| & |\csc| & |\det|
-\end{tabular}
+\begin{tabular}{lllll}
+  |\sin| & |\cos| & |\arcsin| & |\arccos| & |\sinh| \\
+  |\cosh| & |\tan| & |\arctan| & |\log| & |\ln|\\
+  |\max| & |\min| & |\sup| & |\inf| & |\tanh|\\
+  |\cot| & |\sec| & |\csc| & |\det|
+\end{tabular}\\
+\vspace{2mm}
+To define a custom operator:\\
+|\DeclareMathOperator{\argmax}{argmax}|
 
 \section*{Modulo}
 \begin{tabular}{rl}
@@ -142,9 +153,8 @@ To ensure a consistent style throughout the document: \\
 |\frac{| \dots\ |}{| \dots\ |}|
 
 \section*{Symbol stacking}
-|\overset{| \dots\ |}{| \dots\ |}| \\
-|\underset{| \dots\ |}{| \dots\ |}| \\
-\vspace{2mm}
+|\overset{| \dots\ |}{| \dots\ |}| $\qquad$ |\underset{| \dots\ |}{| \dots\ |}| \\
+\vspace{1mm}
 First argument is the main symbol, second argument is the symbol to put over or under the main symbol.
 
 \section*{Big operators}
@@ -173,7 +183,7 @@ Let \LaTeX\ determine the correct size using |\left| and |\right| immediately be
 \end{tabular}
 
 \vspace{3mm}
-The same can be achieved by defining new commands: \\
+The same can be achieved by defining: \\
 \vspace{1mm}
 |\usepackage{mathtools}| \\
 |\DeclarePairedDelimiter{\abs}{\lvert}{\rvert}| \\
@@ -332,6 +342,7 @@ Use the |cases| environment. Use |\\| to separate different cases, and |&| for c
   |\end{cases}|
 \end{minipage}
 
+\columnbreak
 \section*{Matrices}
 Use one of the following environments: \\
 
