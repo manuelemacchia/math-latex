@@ -1,6 +1,8 @@
 # Quick Reference for AMS-LaTeX
 
-A useful quick reference sheet for the principal package in the AMS-LaTeX distribution: `amsmath`. [Open the pre-compiled PDF](amsmath.pdf).
+A useful quick reference sheet for the principal package in the AMS-LaTeX distribution: `amsmath`.
+
+→ [Open the cheatsheet!](amsmath.pdf)
 
 ## Contents
 An overview of the most used commands, characters, and symbols to write mathematical formulas in LaTeX.
