@@ -39,6 +39,9 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 
+% Additional symbols
+\usepackage{bbm}
+
 % For examples
 \usepackage{mathtools}
 \DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
@@ -377,6 +380,16 @@ Use |\\| to separate different rows, and |&| to separate elements of each row.
 
 \vspace{1mm}
 To produce a small matrix, useful for inline math, use the |smallmatrix| environment: $\left[\begin{smallmatrix} a & b \\ c & d \end{smallmatrix}\right]$.
+
+\section*{Blackboard bold}
+Include the package |bbm| for these symbols.
+\begin{center}
+\begin{tabular}{rcl}
+  Blackboard 1 & $\mathbb{1}$ & |\mathbb{1}|\\
+  Blackboard R & $\mathbb{R}$ & |\mathbb{R}|
+\end{tabular}
+\end{center}
+All letters are supported.
 
 \end{multicols*}
 \end{document}
